@@ -69,3 +69,14 @@ Materialtexte und Kapitelnotizen können in einen eigenen Prüfentwurf übernomm
 Acht Bereiche: These und Position, Begründung und Logik, Belege und Beispiele, Gegenargumente, Aufbau und Schluss, sprachliche Wirkung, Adressatenführung, Zitatarbeit. Ergänzt werden Überarbeitungsschritte, Absatz- und Satzhinweise, Stilhinweise und Formulierungshilfen. Ein Markdown-Prüfbericht enthält die Kategorien, Hilfen und den geprüften Text.
 
 Die Regeln arbeiten mit Textlängen, Absätzen und Signalwörtern. Hinweise sind Vermutungen zur Überarbeitung; sie prüfen weder die Wahrheit von Aussagen noch die Gültigkeit von Schlüssen oder die Existenz zitierter Quellen. Auf eine Gesamtnote und Punkteanzeige wird deshalb verzichtet. Die Serverfunktionen des Originals (OpenAI-Vertiefung, LanguageTool, Literaturverifikation) werden nicht aufgerufen und sind nicht Bestandteil dieser statischen Integration. Es werden keine Entwürfe an das Original oder externe Dienste übermittelt.
+
+## Optionale lokale KI mit Ollama
+
+Neu: Die Werkstatt kann den aktuellen Entwurf mit einem lokalen Ollama-Modell inhaltlich untersuchen. Empfehlung zum Einstieg: `qwen3:8b`. Die vollständige [Installations- und Bedienungsanleitung](OLLAMA-ANLEITUNG.md) erklärt Modellwahl, Qualität, Offlinebetrieb und Fehlerbehebung.
+
+```sh
+ollama pull qwen3:8b
+npm run local-ai
+```
+
+Ollama muss separat laufen, Cloudfunktionen bitte wie in der Anleitung deaktivieren. Lokale Oberfläche: http://127.0.0.1:4188/#argumentation. Node.js 22 LTS oder neuer empfohlen. Keine npm-Abhängigkeiten nötig. In der GitHub-Pages-Webversion wird die Einrichtung erklärt; KI-Aufrufe werden ausschließlich über die lokal gestartete Werkstatt ausgeführt. Keine CORS- oder Netzwerkfreigabe von Ollama erforderlich. Der Code wurde mit einer simulierten Ollama-API getestet; ein reales Modell muss vom Nutzer installiert und die Antwortqualität am eigenen Material geprüft werden.
