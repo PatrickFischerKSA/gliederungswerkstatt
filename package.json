@@ -1,1 +1,14 @@
-{"name":"gliederungswerkstatt","version":"1.0.0","private":true,"type":"module","scripts":{"start":"python3 -m http.server 4187","check":"node --check app.js && node --check engine.js","test":"node --test engine.test.js"},"engines":{"node":">=20"}}
+{
+  "name": "gliederungswerkstatt",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 4187",
+    "check": "node --check app.js && node --check engine.js && node --check argumentation.js && node --check argumentation-ui.js",
+    "test": "node --test *.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

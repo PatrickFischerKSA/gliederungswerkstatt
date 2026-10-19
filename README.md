@@ -59,3 +59,13 @@ Node.js 20+ erforderlich. Tests prüfen Modellkombinationen, Materialvorschläge
 ## Lizenz
 
 Eigener Anwendungscode: MIT, siehe LICENSE. Drittanbieterdateien behalten ihre eigenen Lizenzen in `vendor/`. Materialien, die Nutzer importieren, gehören nicht zur Code-Lizenz.
+
+## Integrierter Argumentationsprüfer
+
+Abschnitt **04 – Argumentation prüfen** portiert die lokalen Prüfregeln aus [PatrickFischerKSA/argumentationspruefer](https://github.com/PatrickFischerKSA/argumentationspruefer) (`server.js`) in ein eigenständiges Browsermodul (`argumentation.js`). Der ursprüngliche Quellcode bleibt im anderen Repository erhalten. Die Integration entstand im Auftrag desselben Repositoryinhabers; sie umfasst keine externen Abhängigkeiten oder Zugangsschlüssel.
+
+Materialtexte und Kapitelnotizen können in einen eigenen Prüfentwurf übernommen werden. Der Entwurf wird mit dem Projekt gespeichert und lässt sich als neue Materialnotiz sichern. Eine Änderung des Entwurfs verwirft die bisherige Anzeige, damit keine veralteten Ergebnisse angezeigt oder exportiert werden. Die Prüfung erfordert mindestens 20 Wörter und erlaubt höchstens 60 000 Zeichen. Alte Projekte ohne Prüfentwurf funktionieren weiterhin.
+
+Acht Bereiche: These und Position, Begründung und Logik, Belege und Beispiele, Gegenargumente, Aufbau und Schluss, sprachliche Wirkung, Adressatenführung, Zitatarbeit. Ergänzt werden Überarbeitungsschritte, Absatz- und Satzhinweise, Stilhinweise und Formulierungshilfen. Ein Markdown-Prüfbericht enthält die Kategorien, Hilfen und den geprüften Text.
+
+Die Regeln arbeiten mit Textlängen, Absätzen und Signalwörtern. Hinweise sind Vermutungen zur Überarbeitung; sie prüfen weder die Wahrheit von Aussagen noch die Gültigkeit von Schlüssen oder die Existenz zitierter Quellen. Auf eine Gesamtnote und Punkteanzeige wird deshalb verzichtet. Die Serverfunktionen des Originals (OpenAI-Vertiefung, LanguageTool, Literaturverifikation) werden nicht aufgerufen und sind nicht Bestandteil dieser statischen Integration. Es werden keine Entwürfe an das Original oder externe Dienste übermittelt.
