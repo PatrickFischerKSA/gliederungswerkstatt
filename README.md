@@ -14,7 +14,7 @@ Danach http://localhost:4187 öffnen. Python 3 ist für den lokalen Server erfor
 
 1. Titel und Leitfrage festhalten.
 2. Über drei separate Uploadfelder Quellen, Notizen und Vorgaben hinzufügen. Mehrfachauswahl ist möglich. Alternativ Text direkt eingeben.
-3. Ein Grundmodell und optional ein Modell für die Unterkapitel wählen.
+3. Ein Grundmodell und optional mehrere Modelle für die Unterkapitel wählen. Über **Weiteres Modell anhängen** lassen sich zusätzliche Modelle ergänzen und wieder entfernen.
 4. Gliederung erzeugen, Kapitel umbenennen, verschieben, ergänzen oder löschen. Unterkapitel sind ebenfalls bearbeitbar.
 5. Materialien einem oder mehreren Hauptkapiteln zuordnen. Unzugeordnete Materialien bleiben sichtbar. Volltexte und Materialtitel lassen sich im Materialspeicher bearbeiten.
 6. Projekt als JSON sichern oder wieder öffnen; Gliederung mit Materialverzeichnis als Markdown exportieren. Über den Browserdialog lässt sich die Gliederung drucken oder als PDF sichern.
@@ -23,7 +23,7 @@ Danach http://localhost:4187 öffnen. Python 3 ist für den lokalen Server erfor
 
 Als fachliche Orientierung diente der vom Auftraggeber bereitgestellte Scan „Der rote FadenII“, insbesondere die Abschnitte 13 und 14 (gedruckte Seiten 101–114): chronologische Kette, vergleichende Waage, systematischer Rhombus, Phänomen–Ursache/Wirkung und IMRAD. Hinzu kommen induktives, deduktives und dialektisches Vorgehen. Die Beschreibungen und Vorlagen sind eigenständig formuliert; der Scan wird nicht mitveröffentlicht.
 
-Die Kombination erzeugt das erste Modell als Hauptkapitel und das zweite als Unterkapitel innerhalb jedes Hauptkapitels. Einleitung und Schluss stehen außerhalb der Kombination. Die Gliederung ist eine Vorlage, keine fachlich geprüfte fertige Arbeit. Vorgaben sind Material und werden nicht als ausführbare Anweisungen interpretiert.
+Die Kombination erzeugt das Grundmodell als Hauptkapitel. Das zweite Modell und alle zusätzlich angehängten Modelle ergänzen ihre jeweiligen Abschnitte als Unterkapitel innerhalb jedes Hauptkapitels – nacheinander in der ausgewählten Reihenfolge, ohne zusätzliche Verschachtelung. Doppelte Modelle werden beim Erzeugen nur einmal berücksichtigt. Ältere Projektdateien ohne Zusatzmodelle bleiben kompatibel. Einleitung und Schluss stehen außerhalb der Kombination. Die Gliederung ist eine Vorlage, keine fachlich geprüfte fertige Arbeit. Vorgaben sind Material und werden nicht als ausführbare Anweisungen interpretiert.
 
 ## Dateiformate und Grenzen
 
