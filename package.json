@@ -1,15 +1,15 @@
 {
   "name": "gliederungswerkstatt",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "python3 -m http.server 4187",
-    "check": "node --check app.js && node --check engine.js && node --check argumentation.js && node --check argumentation-ui.js && node --check ollama-core.js && node --check ollama-ui.js && node --check local-server.mjs",
-    "test": "node --test *.test.js",
+    "start": "node local-server.mjs",
+    "check": "node --check app.js && node --check engine.js && node --check argumentation.js && node --check argumentation-ui.js && node --check ollama-core.js && node --check ollama-ui.js && node --check local-server.mjs && node --check chat-review.js && node --check chat-review-ui.js",
+    "test": "node --test argumentation.test.js engine.test.js ollama.test.js chat-review.test.js",
     "local-ai": "node local-server.mjs"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   }
 }

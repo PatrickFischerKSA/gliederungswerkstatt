@@ -1,5 +1,5 @@
 export function setupOllama({getState,download}){
- const $=s=>document.querySelector(s);const local=['127.0.0.1','localhost'].includes(location.hostname)&&location.port==='4188';let controller=null,last=null;
+ const $=s=>document.querySelector(s);const local=['127.0.0.1','localhost'].includes(location.hostname)&&location.port==='4189';let controller=null,last=null;
  const payload=()=>({text:$('#review-text').value,question:getState().question,outline:getState().chapters.map((c,i)=>`${i+1}. ${c.title}`).join('\n'),model:$('#ollama-model').value});
  const signature=()=>JSON.stringify(payload());
  function invalidate(){controller?.abort();last=null;$('#ollama-result').textContent='';$('#ollama-export').disabled=true;$('#ollama-status').textContent='';}

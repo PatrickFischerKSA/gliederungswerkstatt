@@ -1,14 +1,45 @@
-# Roter Faden – Gliederungswerkstatt
+# Roter Faden – Gliederungswerkstatt mit Ollama
 
-Eine deutschsprachige, statische Browseranwendung, um Materialien zu sammeln und daraus eine bearbeitbare Gliederung zu entwickeln. Für Fach-, Projekt- und Maturaarbeiten. Ohne Konto, Backend oder API-Schlüssel.
+Eine deutschsprachige, statische Browseranwendung, um Materialien zu sammeln und daraus eine bearbeitbare Gliederung zu entwickeln. Für Fach-, Projekt- und Maturaarbeiten. Ohne Konto oder API-Schlüssel. Die KI-Funktion nutzt einen lokalen Node.js-Dienst und Ollama auf demselben Rechner.
 
-## Starten
+## Aktueller Stand unter der ursprünglichen Adresse
+
+Der aktuelle Stand mit freier Wahl des KI-Chats und optionalem Ollama ist wieder unter **gliederungswerkstatt** veröffentlicht. Ollama, Modell und Node.js werden einmal pro Rechner eingerichtet, nicht pro Browser. Die lokale Adresse dieser Edition verwendet Port **4189**, damit sie neben der bisherigen Werkstatt (4188) laufen kann.
+
+- Neuer Rechner: Ollama, Modell und lokale Werkstatt dort einrichten.
+- Weiterer Browser auf demselben Rechner: dieselbe lokale Adresse öffnen, keine erneute Modellinstallation.
+- Nach einem Neustart: Ollama und die Werkstatt starten; das Modell bleibt installiert.
+- Projektdaten bleiben pro Browser getrennt. JSON-Sicherung und -Import übertragen bestehende Projekte, auch aus der ursprünglichen Werkstatt.
+- Diese Lösung richtet sich an macOS-, Windows- und Linux-Rechner. Smartphones und Tablets können die statische Webversion nutzen, aber nicht diese Desktop-Ollama-Anbindung.
+
+[Installationsanleitung mit Windows-Schritten](OLLAMA-ANLEITUNG.md)
+
+## Starten auf Windows und Mac
+
+Nach einmaliger Installation von Node.js 22+ sowie Ollama und dem Modell:
+
+| System | Startdatei im entpackten Projektordner |
+| --- | --- |
+| Windows | `Start-Windows.cmd` |
+| macOS | `Start-Mac.command` |
+
+Danach **http://127.0.0.1:4189** im Browser öffnen. Das Startfenster offen lassen; Ollama läuft separat. Es ist kein `npm install` nötig. Die vollständige [Anleitung](OLLAMA-ANLEITUNG.md) erklärt Installation, alternative Terminalbefehle und Projektübertragung.
+
+### Alternativ im Terminal starten
+
+Windows (PowerShell oder Eingabeaufforderung):
+
+```powershell
+npm.cmd start
+```
+
+macOS/Linux:
 
 ```sh
 npm start
 ```
 
-Danach http://localhost:4187 öffnen. Python 3 ist für den lokalen Server erforderlich. Nicht per Doppelklick öffnen: PDF-Worker und JavaScript-Module brauchen HTTP. Alternativ jeden anderen statischen Webserver verwenden.
+Danach http://127.0.0.1:4189 öffnen. Node.js 22 LTS oder neuer ist für den lokalen Server erforderlich. Nicht per Doppelklick öffnen: PDF-Worker und JavaScript-Module brauchen HTTP. Andere statische Webserver ermöglichen die Grundfunktionen, aber nicht die lokale KI-Verbindung.
 
 ## Arbeitsablauf
 
@@ -54,7 +85,7 @@ npm run check
 npm test
 ```
 
-Node.js 20+ erforderlich. Tests prüfen Modellkombinationen, Materialvorschläge, Projektvalidierung und Export. Keine Installation von npm-Paketen nötig. Die Anwendung benötigt einen aktuellen Browser mit ES-Modulen, Web Workern und `crypto.randomUUID` (localhost oder HTTPS).
+Node.js 22+ erforderlich. Tests prüfen Modellkombinationen, Materialvorschläge, Projektvalidierung und Export. Keine Installation von npm-Paketen nötig. Die Anwendung benötigt einen aktuellen Browser mit ES-Modulen, Web Workern und `crypto.randomUUID` (localhost oder HTTPS).
 
 ## Lizenz
 
@@ -79,4 +110,10 @@ ollama pull qwen3:8b
 npm run local-ai
 ```
 
-Ollama muss separat laufen, Cloudfunktionen bitte wie in der Anleitung deaktivieren. Lokale Oberfläche: http://127.0.0.1:4188/#argumentation. Node.js 22 LTS oder neuer empfohlen. Keine npm-Abhängigkeiten nötig. In der GitHub-Pages-Webversion wird die Einrichtung erklärt; KI-Aufrufe werden ausschließlich über die lokal gestartete Werkstatt ausgeführt. Keine CORS- oder Netzwerkfreigabe von Ollama erforderlich. Der Code wurde mit einer simulierten Ollama-API getestet; ein reales Modell muss vom Nutzer installiert und die Antwortqualität am eigenen Material geprüft werden.
+Ollama muss separat laufen, Cloudfunktionen bitte wie in der Anleitung deaktivieren. Lokale Oberfläche: http://127.0.0.1:4189/#argumentation. Node.js 22 LTS oder neuer empfohlen. Keine npm-Abhängigkeiten nötig. In der GitHub-Pages-Webversion wird die Einrichtung erklärt; KI-Aufrufe werden ausschließlich über die lokal gestartete Werkstatt ausgeführt. Keine CORS- oder Netzwerkfreigabe von Ollama erforderlich. Der Code wurde mit einer simulierten Ollama-API getestet; ein reales Modell muss vom Nutzer installiert und die Antwortqualität am eigenen Material geprüft werden.
+
+## KI-Chat deiner Wahl: Kopierweg
+
+Unter **04 → Eigenes Chat-Konto** einen Prüfauftrag erstellen, kopieren und selbst in einen KI-Chat deiner Wahl absenden. Der Auftrag enthält den aktuellen Entwurf, Arbeitstitel, Leitfrage und die Gliederung mit Kapitelnotizen; keine Originaldateien oder Materialvolltexte. Er lässt sich vor dem Kopieren ansehen. Es ist keine API-Verbindung implementiert, kein API-Schlüssel nötig und Ollama muss für diesen Weg nicht installiert sein. Die Funktion arbeitet auch auf GitHub Pages ohne lokalen Dienst. Nutzung und Limits richten sich nach dem jeweiligen Chat-Konto.
+
+Die Antwort aus dem Chat manuell zurückkopieren. Auftrag und Antwort werden mit dem Projekt als JSON gespeichert. Die Antwort kann zusätzlich als Materialnotiz gesichert oder gemeinsam mit dem Auftrag als Markdown heruntergeladen werden. Nach Änderungen an der Arbeit den Prüfauftrag neu erstellen. Bei vorhandener Antwort wird vor dem Ersetzen nachgefragt. Es erfolgt kein automatisches Senden und kein automatisches Lesen aus fremden Chats.
